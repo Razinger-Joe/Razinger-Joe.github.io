@@ -22,10 +22,10 @@ description: >-
   Bridging the gap between exploit development and secure software engineering
 
 # CHANGE THIS to your actual GitHub Pages URL
-url: "https://josef-razinger.github.io" 
+url: "https://razingerjoe.github.io"
 
 github:
-  username: josef-razinger # Update this if your username is different
+  username: Razinger-Joe
 
 twitter:
   username: # Add your handle if you have one
@@ -38,8 +38,8 @@ social:
   name: Josef Razinger
   email: # your-email@domain.com
   links:
-    - https://github.com/josef-razinger          # Primary
-    - https://linkedin.com/in/josef-razinger      # Crucial for HR/Recruiters
+    - https://github.com/Razinger-Joe
+    - https://linkedin.com/in/josef-razinger
     # - https://tryhackme.com/p/your_username    # Recommended: Add your THM/HTB here
     # - https://app.hackthebox.com/profile/id
 
@@ -65,7 +65,7 @@ pageviews:
 theme_mode: dark
 
 # Avatar: Use a professional photo or a clean terminal-style icon
-avatar: /assets/img/avatar.jpg   
+avatar: /assets/img/avatar.png
 
 # Social Preview: This is what appears when you share your link on LinkedIn
 social_preview_image: /assets/img/site-preview.png
@@ -79,7 +79,7 @@ toc: true # Essential for long "Malware Analysis" or "CTF Walkthrough" posts
 comments:
   provider: giscus # Uses GitHub Discussions (Very dev-friendly)
   giscus:
-    repo: josef-razinger/josef-razinger.github.io
+    repo: Razinger-Joe/Razinger-Joe.github.io
     repo_id: # Get this from giscus.app
     category: Announcements
     category_id: # Get this from giscus.app

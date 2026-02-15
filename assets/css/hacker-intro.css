@@ -1,0 +1,177 @@
+/* ============================================================
+   HACKER INTRO — "You Have Been Hacked" Splash Screen
+   Binary rain animation with glitch text overlay
+   ============================================================ */
+
+/* ---- Splash Overlay ---- */
+#hacker-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 1.2s ease-out;
+  cursor: default;
+  overflow: hidden;
+}
+
+#hacker-intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Binary Rain Canvas ---- */
+#binary-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ---- "YOU HAVE BEEN HACKED" Message ---- */
+.hacked-msg {
+  position: relative;
+  z-index: 2;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(1.6rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #00ff41;
+  text-shadow:
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    0 0 40px #00ff41,
+    0 0 80px rgba(0, 255, 65, 0.4);
+  /* --- Blink animation --- */
+  animation: hackBlink 0.8s step-end infinite, glitch 2.5s infinite;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Skull / icon above message */
+.hacked-icon {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin-bottom: 1rem;
+  animation: pulse-glow 1.5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 20px #ff0040);
+}
+
+/* Sub-message */
+.hacked-sub {
+  position: relative;
+  z-index: 2;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.7rem, 1.8vw, 1rem);
+  color: #ff0040;
+  text-shadow: 0 0 8px #ff0040;
+  margin-top: 1.2rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: flicker 3s infinite;
+}
+
+/* "Click to Enter" prompt */
+.enter-prompt {
+  position: relative;
+  z-index: 2;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+  color: rgba(0, 255, 65, 0.6);
+  margin-top: 3rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: pulse-opacity 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+/* Hard blink: on/off */
+@keyframes hackBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glitch shift effect */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  2% { transform: translate(-3px, 1px); }
+  4% { transform: translate(3px, -1px); }
+  6% { transform: translate(0); }
+  40% { transform: translate(0); }
+  42% { transform: translate(-2px, 2px); color: #ff0040; }
+  44% { transform: translate(2px, -2px); color: #00ff41; }
+  46% { transform: translate(0); color: #00ff41; }
+}
+
+/* Skull pulsing glow */
+@keyframes pulse-glow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 15px #ff0040); }
+  100% { transform: scale(1.08); filter: drop-shadow(0 0 40px #ff0040); }
+}
+
+/* Red sub-text flicker */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.3; }
+}
+
+/* Gentle pulse for "click to enter" */
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ============================================================
+   CHIRPY THEME OVERRIDES — Hacker Aesthetic
+   ============================================================ */
+
+/* Terminal-style code blocks */
+.highlight pre {
+  border: 1px solid rgba(0, 255, 65, 0.15) !important;
+  border-radius: 8px !important;
+  position: relative;
+}
+
+.highlight pre::before {
+  content: "● ● ●";
+  display: block;
+  color: rgba(0, 255, 65, 0.4);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  padding: 6px 12px 4px;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+  margin-bottom: 4px;
+}
+
+/* Neon green accent for links & headings in dark mode */
+html[data-mode="dark"] #sidebar .site-title a,
+html[data-mode="dark"] #sidebar .site-subtitle {
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+}
+
+/* Subtle scan-lines on sidebar */
+html[data-mode="dark"] #sidebar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.015) 2px,
+    rgba(0, 255, 65, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Google Font import for monospace branding */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;900&display=swap');
