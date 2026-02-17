@@ -7,6 +7,23 @@ lang: en
 timezone: Africa/Nairobi
 
 # ============================================================
+# COLLECTIONS & DEFAULTS
+# ============================================================
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+# ============================================================
 # SEO & IDENTITY
 # ============================================================
 
